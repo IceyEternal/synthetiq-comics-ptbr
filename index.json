@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-21T20:00:00Z",
+  "repository": {
+    "id": "iceyeternal.comics.ptbr",
+    "name": "Comics PT-BR Sources",
+    "owner": "IceyEternal",
+    "homepage": "https://github.com/IceyEternal/synthetiq-comics-ptbr",
+    "universalLink": "https://github.com/IceyEternal/synthetiq-comics-ptbr"
+  },
+  "modules": [
+    {
+      "contentRating": "suggestive",
+      "contentType": "pageImages",
+      "familyID": "soquadrinhos-ptbr-v1",
+      "icon": {
+        "path": "modules/soquadrinhos-ptbr/icon.png",
+        "sha256": "b468dfbf7ad5d3640891d5235af0650994ff38202d8eb1942ef0db8088ef5c78"
+      },
+      "id": "soquadrinhos-ptbr-v1",
+      "language": "pt-BR",
+      "manifest": {
+        "path": "modules/soquadrinhos-ptbr/manifest.json",
+        "sha256": "c6feb8e97ca2e096ba89288253519287097931f3289cdc40bb290dcfbb1b7adc"
+      },
+      "name": "Só Quadrinhos PT-BR",
+      "releaseTrack": "beta",
+      "status": "active",
+      "version": "0.1.0",
+      "sortPriority": 1
+    },
+    {
+      "contentRating": "suggestive",
+      "contentType": "pageImages",
+      "familyID": "hqnow-ptbr-v1",
+      "icon": {
+        "path": "modules/hqnow-ptbr/icon.png",
+        "sha256": "b468dfbf7ad5d3640891d5235af0650994ff38202d8eb1942ef0db8088ef5c78"
+      },
+      "id": "hqnow-ptbr-v1",
+      "language": "pt-BR",
+      "manifest": {
+        "path": "modules/hqnow-ptbr/manifest.json",
+        "sha256": "5f5b7356a4f6f174298b313a2c0a1312b18a19bc57a0482644a2887804d37c6c"
+      },
+      "name": "HQ Now PT-BR",
+      "releaseTrack": "beta",
+      "status": "active",
+      "version": "0.1.0",
+      "sortPriority": 2
+    }
+  ]
+}
