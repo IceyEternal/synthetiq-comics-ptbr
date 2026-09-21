@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T20:00:00Z",
+  "generatedAt": "2026-09-21T19:46:47Z",
   "repository": {
     "id": "iceyeternal.comics.ptbr",
     "name": "Comics PT-BR Sources",
@@ -21,12 +21,12 @@
       "language": "pt-BR",
       "manifest": {
         "path": "modules/soquadrinhos-ptbr/manifest.json",
-        "sha256": "c6feb8e97ca2e096ba89288253519287097931f3289cdc40bb290dcfbb1b7adc"
+        "sha256": "62d7f326d89d5a3ef49c4bf7231f0028f0436a1ffe0fe5141c20ed56dac4c9f4"
       },
       "name": "Só Quadrinhos PT-BR",
       "releaseTrack": "beta",
       "status": "active",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "sortPriority": 1
     },
     {
