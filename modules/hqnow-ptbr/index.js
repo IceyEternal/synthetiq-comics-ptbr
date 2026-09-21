@@ -306,17 +306,110 @@
     return chapters.reverse();
   }
 
-  async function extractImages(chapterURLOrID) {
-    parseChapterID(chapterURLOrID);
-
-    throw sourceError(
-      "SOURCE_IMPLEMENTATION_REQUIRED",
-      `${CONFIG.name}: falta implementar extractImages para a origem concreta das páginas.`,
-      {
-        stage: "extractImages",
-        source: CONFIG.id
-      }
+  async function fetchChapterReaderMetadata(chapterId) {
+    const payload = await graphql(
+      "getChapterById",
+      `
+        query getChapterById($chapterId: Int!) {
+          getChapterById(chapterId: $chapterId) {
+            name
+            number
+            oneshot
+          }
+        }
+      `,
+      { chapterId }
     );
+
+    const chapter = payload?.data?.getChapterById;
+    if (!chapter) {
+      throw sourceError(
+        "CHAPTER_NOT_FOUND",
+        "HQ Now não devolveu esta edição.",
+        { chapterId }
+      );
+    }
+
+    return chapter;
+  }
+
+  function normalizeReaderPage(value, index) {
+    const rawURL =
+      typeof value === "string"
+        ? value
+        : value && typeof value === "object"
+          ? value.url || value.src || value.image
+          : "";
+
+    const url = String(rawURL || "").trim();
+    if (!url.startsWith("https://")) return null;
+
+    return {
+      url,
+      headers: {
+        Accept: "image/avif,image/webp,image/*,*/*"
+      },
+      index
+    };
+  }
+
+  async function resolveAuthorizedPages(context) {
+    void context;
+
+    // ÚNICO BLOCO QUE FALTA:
+    // liga aqui uma origem de páginas que tenhas autorização para usar.
+    //
+    // O retorno pode ser:
+    // [
+    //   "https://exemplo.com/page-001.jpg",
+    //   "https://exemplo.com/page-002.jpg"
+    // ]
+    //
+    // ou:
+    // [
+    //   { url: "https://exemplo.com/page-001.jpg" },
+    //   { url: "https://exemplo.com/page-002.jpg" }
+    // ]
+
+    return [];
+  }
+
+  async function extractImages(chapterURLOrID) {
+    const chapterId = parseChapterID(chapterURLOrID);
+    const chapter = await fetchChapterReaderMetadata(chapterId);
+
+    const rawPages = await resolveAuthorizedPages({
+      chapterId,
+      chapter,
+      chapterURLOrID: String(chapterURLOrID || "")
+    });
+
+    if (!Array.isArray(rawPages) || !rawPages.length) {
+      throw sourceError(
+        "READER_SOURCE_REQUIRED",
+        "A edição existe no HQ Now, mas ainda falta ligar a origem das páginas.",
+        {
+          chapterId,
+          chapterName: String(chapter?.name || ""),
+          chapterNumber: String(chapter?.number || ""),
+          source: CONFIG.id
+        }
+      );
+    }
+
+    const pages = rawPages
+      .map((page, index) => normalizeReaderPage(page, index))
+      .filter(Boolean);
+
+    if (!pages.length) {
+      throw sourceError(
+        "NO_VALID_IMAGES",
+        "A origem do reader não devolveu URLs HTTPS válidas.",
+        { chapterId, source: CONFIG.id }
+      );
+    }
+
+    return pages;
   }
 
   globalThis.SynthetiqModule = Object.freeze({
