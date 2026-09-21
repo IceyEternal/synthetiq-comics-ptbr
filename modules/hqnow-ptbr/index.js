@@ -315,6 +315,9 @@
             name
             number
             oneshot
+            pictures {
+              pictureUrl
+            }
           }
         }
       `,
@@ -354,24 +357,12 @@
   }
 
   async function resolveAuthorizedPages(context) {
-    void context;
+    const chapter = context?.chapter;
+    const pictures = Array.isArray(chapter?.pictures) ? chapter.pictures : [];
 
-    // ÚNICO BLOCO QUE FALTA:
-    // liga aqui uma origem de páginas que tenhas autorização para usar.
-    //
-    // O retorno pode ser:
-    // [
-    //   "https://exemplo.com/page-001.jpg",
-    //   "https://exemplo.com/page-002.jpg"
-    // ]
-    //
-    // ou:
-    // [
-    //   { url: "https://exemplo.com/page-001.jpg" },
-    //   { url: "https://exemplo.com/page-002.jpg" }
-    // ]
-
-    return [];
+    return pictures
+      .map(pic => pic?.pictureUrl)
+      .filter(url => typeof url === "string" && url.trim().length > 0);
   }
 
   async function extractImages(chapterURLOrID) {
