@@ -2,7 +2,10 @@
   "allowedHosts": [
     "hq-now.com",
     "www.hq-now.com",
-    "*.hq-now.com"
+    "*.hq-now.com",
+    "admin.hq-now.com",
+    "static.hq-now.com",
+    "*.static.hq-now.com"
   ],
   "attribution": {
     "author": "IceyEternal",
@@ -42,5 +45,5 @@
   "releaseTrack": "beta",
   "status": "active",
   "universalLink": "https://github.com/IceyEternal/synthetiq-comics-ptbr",
-  "version": "0.2.0"
+  "version": "0.2.1"
 }
