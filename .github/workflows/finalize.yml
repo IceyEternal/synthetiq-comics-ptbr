@@ -2,6 +2,10 @@ name: Finalize Synthetiq hashes
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "modules/**/index.js"
+      - "modules/**/icon.png"
 
 permissions:
   contents: write
