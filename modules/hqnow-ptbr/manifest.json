@@ -20,7 +20,7 @@
   "contractVersion": 1,
   "entry": {
     "path": "modules/hqnow-ptbr/index.js",
-    "sha256": "46657a521982d86404e3b4feaaba2f33213309d5a6a08f4fdd2f798937b324d5"
+    "sha256": "6584cccb772364cd33d048798a7473c123f54ea48ebb7b0fd1e463fc53168551"
   },
   "familyID": "hqnow-ptbr-v1",
   "icon": {
