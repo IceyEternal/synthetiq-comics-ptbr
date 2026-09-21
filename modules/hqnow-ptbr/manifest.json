@@ -1,0 +1,46 @@
+{
+  "allowedHosts": [
+    "hq-now.com",
+    "www.hq-now.com",
+    "*.hq-now.com"
+  ],
+  "attribution": {
+    "author": "IceyEternal",
+    "website": "https://www.hq-now.com"
+  },
+  "baseURL": "https://www.hq-now.com",
+  "capabilities": [
+    "search",
+    "details",
+    "chapters",
+    "images"
+  ],
+  "contentRating": "suggestive",
+  "contentType": "pageImages",
+  "contractVersion": 1,
+  "entry": {
+    "path": "modules/hqnow-ptbr/index.js",
+    "sha256": "46657a521982d86404e3b4feaaba2f33213309d5a6a08f4fdd2f798937b324d5"
+  },
+  "familyID": "hqnow-ptbr-v1",
+  "icon": {
+    "path": "modules/hqnow-ptbr/icon.png",
+    "sha256": "b468dfbf7ad5d3640891d5235af0650994ff38202d8eb1942ef0db8088ef5c78"
+  },
+  "id": "hqnow-ptbr-v1",
+  "language": "pt-BR",
+  "legacyIDs": [],
+  "limits": {
+    "cacheTTLSeconds": 300,
+    "maxConcurrentRequests": 2,
+    "maxResponseBytes": 16777216,
+    "maxScriptBytes": 524288,
+    "timeoutMilliseconds": 30000
+  },
+  "minimumAppVersion": "1.0.0",
+  "name": "HQ Now PT-BR",
+  "releaseTrack": "beta",
+  "status": "active",
+  "universalLink": "https://github.com/IceyEternal/synthetiq-comics-ptbr",
+  "version": "0.1.0"
+}
