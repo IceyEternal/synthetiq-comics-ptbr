@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T20:41:35Z",
+  "generatedAt": "2026-09-21T20:50:31Z",
   "repository": {
     "id": "iceyeternal.comics.ptbr",
     "name": "Comics PT-BR Sources",
@@ -41,7 +41,7 @@
       "language": "pt-BR",
       "manifest": {
         "path": "modules/hqnow-ptbr/manifest.json",
-        "sha256": "1a656f0de3328e6d204858a1f9d4ffbf7122e0fdc596820720da024a94f473ad"
+        "sha256": "52f84521b834a86e266f738ad542c564b468a192cb96d8315477c993a24b3220"
       },
       "name": "HQ Now PT-BR",
       "releaseTrack": "beta",
